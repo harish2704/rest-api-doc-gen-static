@@ -14,7 +14,7 @@ var converter = new showdown.Converter( markdownConfig );
 
 
 function render( apiData ){
-  var htmlOut = renderer.render('./template.ect', { 
+  var htmlOut = renderer.render( __dirname + '/template.ect', { 
     apiData: apiData,
     markdown: converter.makeHtml.bind( converter ),
     genId: function( api ){
