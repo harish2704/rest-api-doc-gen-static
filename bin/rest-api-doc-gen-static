@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+
+var dataFile = process.argv[2];
+var outFile = process.argv[3];
+var Me = require( __dirname + '/../gen-docs');
+
+if( !( dataFile && outFile ) ){
+  console.log( 'Invalid arguments!! \n\nUsage: rest-api-doc-gen-static <data-file.hjson> <output.html>' );
+  process.exit( 1 );
+}
+
+Me( dataFile, outFile );
+
