@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Api Documentation</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" >
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css" rel="stylesheet" type="text/css" media="all" >
+    <!-- <link href="./assets/css/app.css" rel="stylesheet" type="text/css" media="all" > -->
+
+    <style type="text/css" media="all">
+      [data-collapsed="1"] + pre.language-javascript {
+        display : block;
+      }
+      .code-example > h4:not( [data-collapsed="1"] ) + pre {
+        display: none;
+      }
+      .code-example > h4 {
+        cursor: pointer;
+        color: rgb(206, 0, 211);
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="container-fluid" >
+
+      <div class="col-md-12">
+        <% for api in @apiData : %>
+        <div class="panel panel-info" id="<%- @genId api %>" >
+          <div class="panel-heading">
+            <a href="#<%- @genId api %>" class="self-collapse" >
+              <h3 class="panel-title">
+                <strong><%- api.method %> </strong>
+                <span><%- api.action %></span>
+              </h3>
+            </a>
+          </div>
+          <div class="panel-body ">
+            <p>
+            <div > <%- @markdown api.description %> </div>
+            <h4>Query Params</h4>
+            <ul>
+              <% for param in api.query : %>
+              <li >
+              <b><%- param.name %></b> : <code class=""><%- param.type %></code>
+              <div ><%- @markdown param.description %> </div>
+              </li>
+              <% end %>
+            </ul>
+            <h4>Body</h4>
+            <ul>
+              <% for param in api.body : %>
+              <li >
+              <b><%- param.name %></b> : <code class=""><%- param.type %></code>
+              <div ><%- @markdown param.description %> </div>
+              </li>
+              <% end %>
+            </ul>
+            <h4>Response</h4>
+            <ul>
+              <% for param in api.resBody : %>
+              <li >
+              <b><%- param.name %></b> : <code class=""><%- param.type %></code>
+              <div ><%- @markdown param.description %> </div>
+              </li>
+              <% end %>
+            </ul>
+            <div class="code-example">
+              <h4>Example Req</h4>
+              <pre class="language-javascript" ><code class="language-javascript" ><%-  api.exampleReq  %></code></pre>
+            </div>
+            <div class="code-example">
+              <h4>Example Response</h4>
+              <pre class="language-javascript" ><code class="language-javascript" ><%-  api.exampleRes  %></code></pre>
+            </div>
+            </p>
+          </div>
+        </div>
+        <% end %>
+      </div>
+
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      $(function(){
+        $('div.panel-body > .code-example > h4').click(function(){
+          var el = $(this);
+          el.attr('data-collapsed', el.attr('data-collapsed') == '1' ? '0' : '1' );
+        });
+      });
+    </script>
+  </body>
+</html>

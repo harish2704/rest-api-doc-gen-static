@@ -1,0 +1,29 @@
+{
+  "name": "rest-api-doc-gen-static",
+  "version": "1.0.0",
+  "description": "Static REST API doc generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harish2704/rest-api-doc-gen-static.git"
+  },
+  "keywords": [
+    "API",
+    "documentation",
+    "generator"
+  ],
+  "author": "Harish.K <harish2704@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/harish2704/rest-api-doc-gen-static/issues"
+  },
+  "homepage": "https://github.com/harish2704/rest-api-doc-gen-static#readme",
+  "dependencies": {
+    "ect": "^0.5.9",
+    "hjson": "^1.7.6",
+    "showdown": "^1.3.0"
+  }
+}
