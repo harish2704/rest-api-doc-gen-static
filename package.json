@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git+https://github.com/harish2704/rest-api-doc-gen-static.git"
   },
+  "bin": {
+    "rest-api-doc-gen-static": "./bin/rest-api-doc-gen-static"
+  },
   "keywords": [
     "API",
     "documentation",
