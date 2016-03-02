@@ -4,7 +4,9 @@
 var fs = require('fs');
 var hjson = require('hjson');
 var ECT = require('ect');
-var renderer = new ECT();
+var renderer = new ECT({
+  root: __dirname,
+});
 var showdown  = require('showdown');
 var markdownConfig = {
   tables: true,
@@ -14,7 +16,7 @@ var converter = new showdown.Converter( markdownConfig );
 
 
 function render( apiData ){
-  var htmlOut = renderer.render( __dirname + '/template.ect', { 
+  var htmlOut = renderer.render( 'template.ect', { 
     apiData: apiData,
     markdown: converter.makeHtml.bind( converter ),
     genId: function( api ){

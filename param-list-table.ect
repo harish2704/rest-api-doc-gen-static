@@ -1,0 +1,20 @@
+<% if @params.length : %>
+<table>
+  <thead>
+    <tr>
+      <td>Parameter</td>
+      <td>Type</td>
+      <td>Description</td>
+    </tr>
+  </thead>
+  <tbody>
+  <% for param in @params : %>
+    <tr>
+      <td><%- param.name %></td>
+      <td><code class=""><%- param.type %></code></td>
+      <td><div ><%- @markdown param.description %> </div></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<% end %>

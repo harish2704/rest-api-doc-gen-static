@@ -1,0 +1,10 @@
+<% if @params.length : %>
+<ul>
+  <% for param in @params : %>
+  <li >
+    <b><%- param.name %></b> : <code class=""><%- param.type %></code>
+    <div ><%- @markdown param.description %> </div>
+  </li>
+  <% end %>
+</ul>
+<% end %>
