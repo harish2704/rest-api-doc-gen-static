@@ -9,8 +9,7 @@
     <title>Api Documentation</title>
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" >
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css" rel="stylesheet" type="text/css" media="all" >
-    <!-- <link href="./assets/css/app.css" rel="stylesheet" type="text/css" media="all" > -->
+
 
     <style type="text/css" media="all">
       [data-collapsed="1"] + pre.language-javascript {
@@ -59,11 +58,11 @@
             <% include 'param-list-table.ect', { params : api.resBody, markdown: @markdown } %>
             <div class="code-example">
               <h4>Example Req</h4>
-              <pre class="language-javascript" ><code class="language-javascript" ><%-  api.exampleReq  %></code></pre>
+              <pre class="language-javascript" ><code class="language-javascript" ><%- @highlight api.exampleReq  %></code></pre>
             </div>
             <div class="code-example">
               <h4>Example Response</h4>
-              <pre class="language-javascript" ><code class="language-javascript" ><%-  api.exampleRes  %></code></pre>
+              <pre class="language-javascript" ><code class="language-javascript" ><%- @highlight api.exampleRes  %></code></pre>
             </div>
             </p>
           </div>
@@ -79,7 +78,6 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
     <script type="text/javascript" charset="utf-8">
       $(function(){
         $('div.panel-body > .code-example > h4').click(function(){
