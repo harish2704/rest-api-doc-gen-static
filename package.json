@@ -1,6 +1,6 @@
 {
   "name": "rest-api-doc-gen-static",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Static REST API doc generator",
   "main": "index.js",
   "scripts": {
