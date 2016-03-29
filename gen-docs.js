@@ -3,8 +3,12 @@
 
 var fs = require('fs');
 var hjson = require('hjson');
+// var CodeMirror = require('codemirror-highlight');
+// CodeMirror.loadMode('javascript');
 var ECT = require('ect');
-var renderer = new ECT();
+var renderer = new ECT({
+  root: __dirname,
+});
 var showdown  = require('showdown');
 var markdownConfig = {
   tables: true,
@@ -12,14 +16,20 @@ var markdownConfig = {
 };
 var converter = new showdown.Converter( markdownConfig );
 
+function highlight( code ){
+  // return CodeMirror.highlight( code, { mode: 'javascript' });
+  return code;
+}
+
 
 function render( apiData ){
-  var htmlOut = renderer.render('./template.ect', { 
+  var htmlOut = renderer.render( 'template.ect', { 
     apiData: apiData,
     markdown: converter.makeHtml.bind( converter ),
     genId: function( api ){
       return api.method + '-' + api.action.replace(/[\/:]/g, '-' );
-    }
+    },
+    highlight: highlight,
   });
   return htmlOut;
 }
