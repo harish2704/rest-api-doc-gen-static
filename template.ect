@@ -30,6 +30,10 @@
         height: auto;
         max-height: 100%;
         overflow: auto;
+        position: relative;
+      }
+      @media (min-width: 992px){
+        .api-index { position: fixed; }
       }
       body .table {
         width: inherit;
@@ -50,7 +54,7 @@
 
     <div class="container-fluid" >
 
-      <div class="col-md-4 affix api-index" >
+      <div class="col-md-4 col-sm-12 api-index" >
         <div class="panel panel-primary">
           <div class="panel-heading">
             <h3 class="panel-title">Actions</h3>
@@ -72,7 +76,7 @@
         </div>
       </div>
 
-      <div class="col-md-8 pull-right api-actions">
+      <div class="col-md-8 col-sm-12 pull-right api-actions">
         <% for api in @apiData : %>
         <div class="panel panel-default" id="<%- @genId api %>" >
           <div class="panel-heading">
